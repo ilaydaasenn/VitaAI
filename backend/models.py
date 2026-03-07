@@ -48,3 +48,14 @@ class ExerciseVideo(Base):
     duration = Column(String, nullable=False)
     videoUrl = Column(String, nullable=False)
     thumbnailUrl = Column(String, nullable=True)
+class Favorite(Base):
+    __tablename__ = "favorites"
+    userID = Column(Integer, ForeignKey("users.userID"), primary_key=True)
+    recipeID = Column(Integer, ForeignKey("recipes.recipeID"), primary_key=True)
+
+class QuestionAnswer(Base):
+    __tablename__ = "question_answers"
+    qaID = Column(Integer, primary_key=True, index=True)
+    question = Column(String, nullable=False)
+    answer = Column(String, nullable=False)
+    isActive = Column(Boolean, default=True)
