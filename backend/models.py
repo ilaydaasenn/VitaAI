@@ -34,3 +34,17 @@ class WeightRecord(Base):
     userID = Column(Integer, ForeignKey("users.userID"), nullable=False)
     weight = Column(Float, nullable=False)
     recordDate = Column(DateTime, default=datetime.utcnow)
+class BodyPart(Base):
+    __tablename__ = "body_parts"
+    bodyPartID = Column(Integer, primary_key=True, index=True)
+    code = Column(String, unique=True, nullable=False)
+    display_name = Column(String, nullable=False)
+
+class ExerciseVideo(Base):
+    __tablename__ = "exercise_videos"
+    videoID = Column(Integer, primary_key=True, index=True)
+    bodyPartID = Column(Integer, ForeignKey("body_parts.bodyPartID"), nullable=False)
+    title = Column(String, nullable=False)
+    duration = Column(String, nullable=False)
+    videoUrl = Column(String, nullable=False)
+    thumbnailUrl = Column(String, nullable=True)
