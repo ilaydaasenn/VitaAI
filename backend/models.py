@@ -28,3 +28,9 @@ class Recipe(Base):
     imageUrl = Column(String, nullable=True)
 
     meal_type = relationship("MealType")
+class WeightRecord(Base):
+    __tablename__ = "weight_records"
+    recordID = Column(Integer, primary_key=True, index=True)
+    userID = Column(Integer, ForeignKey("users.userID"), nullable=False)
+    weight = Column(Float, nullable=False)
+    recordDate = Column(DateTime, default=datetime.utcnow)
