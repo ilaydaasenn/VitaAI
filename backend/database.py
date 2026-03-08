@@ -13,3 +13,11 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # Veritabanındaki tabloları Python sınıfları olarak tanımlarken kullanılacak ana sınıf.
 Base = declarative_base()
+
+# Veritabanı bağlantısını açıp işlem bitince kapatan fonksiyon
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
