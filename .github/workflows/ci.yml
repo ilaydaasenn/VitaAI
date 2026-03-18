@@ -37,6 +37,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
 
+      - name: Backend Testlerini Çalıştır
+        env:
+          PYTHONPATH: .
+        run: |
+          python -m pytest backend/tests/
+
       - name: Pipeline Başarı Testi
         run: |
           echo "CI Süreci başarıyla tamamlandı!"
