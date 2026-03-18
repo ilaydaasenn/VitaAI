@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 # Docker üzerinde çalışan veritabanına bağlanmak için gerekli adres bilgileri.
 SQLALCHEMY_DATABASE_URL = "postgresql://vitaai_admin:VitaAI_20262808@localhost:5432/vitaai_db"
